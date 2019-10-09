@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Hook, Unhook, Console } from "console-feed";
+import { Hook, Console } from "console-feed";
 
 let initial = [
   {
@@ -9,7 +9,6 @@ let initial = [
 ];
 
 let getLogs;
-console.log("loaded");
 export const TheConsole = () => {
   // console.log('rendered')
 
@@ -53,20 +52,24 @@ export const TheConsole = () => {
   );
 };
 
-// if (module.hot) {
-//   console.log("hot available");
-//   module.hot.dispose(data => {
-//     console.log("disposing");
-//     data.logs = getLogs();
-//     // console.log(data.logs)
-//     data.message = "this is a message1";
-//   });
-//   if (module.hot.data) {
-//     console.log("got data");
-//     initial = module.hot.data.logs;
-//   } else {
-//   }
-// }
+if (module.hot) {
+  module.hot.dispose(data => {
+    // if (console.feed) {
+    //   Object.keys(console.feed.pointers).forEach(key => {
+    //     console[key] = console.feed.pointers[key];
+    //   });
+    // }
+    // console.log("disposing");
+    data.logs = getLogs();
+    // console.log(data.logs)
+    data.message = "this is a message1";
+  });
+  if (module.hot.data) {
+    console.log("got data");
+    initial = module.hot.data.logs;
+  } else {
+  }
+}
 
 if (console.feed) {
   Object.keys(console.feed.pointers).forEach(key => {
