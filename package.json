@@ -1,0 +1,22 @@
+{
+  "name": "console-temlplate",
+  "version": "1.0.0",
+  "description": "Demo of console-feed",
+  "keywords": [],
+  "homepage": "https://codesandbox.io/s/new",
+  "main": "src/index.js",
+  "dependencies": {
+    "console-feed": "2.8.10",
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
+    "react-scripts": "1.1.0",
+    "react-use-localstorage": "3.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
